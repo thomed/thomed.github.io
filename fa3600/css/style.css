@@ -1,0 +1,179 @@
+
+/**
+* Interactive Historical Fiction project - FA 3600
+* By Thomas Walker
+* April 2016
+*/
+
+body {
+  background-color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+.sticky-top {
+  min-height: 60px;
+}
+
+.sticky-bottom {
+  margin-bottom: 1em;
+}
+
+.sticky-bottom a{
+  color: #005500;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  outline: 0 !important;
+}
+
+.help-btn{
+  font-family: monospace;
+  font-weight: bolder;
+  background-color: #4d4d4d;
+  color: #00ff00;
+  font-size: 21px;
+  width: 4em;
+  float: right;
+}
+
+.help-btn:active {
+  color: #00ff00;
+}
+
+.help-btn:focus {
+  color: #00ff00;
+  outline: 0;
+}
+
+.help-btn:hover {
+  background-color: #616161;
+  color: #00ff00;
+}
+
+.ok-btn {
+  font-family: monospace;
+  font-weight: bolder;
+  background-color: #4d4d4d;
+  color: #00ff00;
+  height: 2em;
+  padding: 0em 1em 0em 1em;
+}
+
+.ok-btn:hover {
+  background-color: #3f3f3f;
+  color: #00ff00;
+}
+
+.continue-btn {
+  display: none;
+  opacity: 0;
+}
+
+.continue-btn:focus {
+  color: #00ff00;
+  outline: none;
+}
+
+.shutdown-btn {
+  display:none;
+  margin-left: 1em;
+}
+
+.replay-btn {
+  display:none;
+}
+
+
+.input-section {
+  font-family: monospace;
+  color: #00ff00;
+  margin-top: 5%;
+}
+
+.newsarticle img{
+  margin-bottom: 3em;
+  border-style: outset;
+  border-width: thick;
+  border-color: #3f3f3f;
+  border-radius: 8px;
+}
+
+.input-section p {
+  margin-top: 1.5em;
+  font-size: 12px;
+}
+
+.name-input {
+  background-color: black;
+  border-style: outset;;
+  padding: 3px 0em 3px 10px;
+
+}
+
+.sticky-top-items {
+  padding-top: 15px;
+}
+
+.spacer {
+  opacity: 0;
+}
+
+.intro {
+  margin-top: 2em;
+  height: 175px;
+  max-height: 175px;
+}
+
+.intro-text {
+  display: none;
+  opacity: 0;
+  color: #00ff00;
+  font-size: 17px;
+  font-family: monospace;
+  text-align: center;
+  font-weight: 100;
+}
+
+.intro-text-intro {
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.terminal-window {
+  margin: auto;
+  height: 0px;
+  width: 850px;
+  background-color: black;
+  border-style: outset;
+  border-width: 2px;
+  opacity: 0;
+}
+
+.terminal-input {
+  background-color: transparent;
+  border-style: none;
+  color: #00ff00;
+  outline: none;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+.terminal-text {
+  margin: 1em 0em 0em -1.5em;
+  color: #00ff00;
+  font-family: monospace;
+  font-size: 15px;
+  max-height: 525px;
+  overflow-y: auto;
+}
+
+.terminal-text li {
+  list-style-type: none;
+}
+
+hr {
+  border-color: #00ff00;
+}

@@ -1,0 +1,94 @@
+<!--
+  Interactive Historical Fiction project - FA 3600
+  By Thomas Walker
+  April 2016
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Author" content="Thomas Walker"/>
+    <title>FA-3600 - Thomas Walker</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+
+    <!-- sticky-top -->
+    <div class="row navbar-static-top sticky-top">
+      <!-- sticky-top items -->
+      <div class="sticky-top-items">
+        <button class="btn help-btn" onclick="helpButton()">?&nbsp</button>
+      </div>
+    </div> <!-- end sticky-top -->
+    <!-- sticky bottom -->
+    <div class="row navbar-fixed-bottom sticky-bottom">
+      <div class="sticky-bottom-items text-center">
+        <a href="../index.html">home</a>
+        &emsp;
+        <a href="about.html" target="_blank">about</a>
+        &emsp;
+        <a href="sources.html" target="_blank">sources</a>
+      </div>
+    </div><!-- end sticky bottom -->
+
+    <div class="container">
+      <div class="input-section text-center">
+
+        <div class="row newsarticle" > <!-- permanently disable after name entry -->
+          <img class="newsarticle" src="images/fakearticle.jpg"/>
+        </div>
+
+        <input class="name-input" value="Enter your name" onclick="clearInput()"/>
+        <button class="btn ok-btn" onclick="getNameInput()">ok</button>
+        <p>
+          Click on the '?' button in the top right if you're ever unsure of what to do.<br />
+          Please don't prevent this page from creating additional dialogs.<br />
+          Use Google Chrome for the best experience!
+        </p>
+      </div>
+
+      <!-- intro text -->
+      <div class="row intro">
+        <div class="col-xs-8 col-xs-offset-2 text-center">
+          <p class="intro-text intro-text-intro">
+            The year is 1989<br /><hr class="spacer" />
+          </p>
+          <p class="intro-text intro-text-content">
+            <br /><br />
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2 text-center">
+          <hr class="spacer" />
+          <button class="btn ok-btn continue-btn center-block" onclick="nextIntroText()">continue</button>
+          <button class="btn ok-btn shutdown-btn" onclick="shutDownAndGoHome()">Shutdown and go home</button>
+          <button class="btn ok-btn replay-btn" onclick="restart()">Restart?</button>
+        </div>
+      </div><!-- end intro area -->
+
+    </div>
+
+    <!-- terminal content -->
+    <div class="row terminal-window">
+      <ul class="terminal-text">
+
+      </ul>
+      <input class="terminal-input" size="75" />
+    </div> <!-- end main content -->
+
+
+    <!-- scripts -->
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

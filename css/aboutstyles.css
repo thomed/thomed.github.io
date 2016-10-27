@@ -1,0 +1,53 @@
+body {
+  background-color: transparent;
+}
+
+.about {
+  font-family: montserrat-regular;
+  color: #ffffff;
+  align-content: center;
+  text-align: left;
+}
+
+.about-info {
+}
+
+.plus-decoration {
+  list-style-type: none;
+}
+
+.plus-decoration:before {
+  content: "+";
+}
+
+ul {
+  line-height: 1.5em;
+}
+
+.project-tables {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-tables table {
+  display: inline-table;
+  text-align: center;
+  margin:auto;
+  max-width: 220px;
+}
+
+.project-tables img {
+  max-width: 40%;
+  min-width: 220px;
+  margin: auto;
+}
+
+.table-title {
+  font-family: montserrat-regular;
+  color: #ffffff;
+}
+
+.extra-space {
+  min-height: 400px;
+}
