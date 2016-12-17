@@ -1,0 +1,181 @@
+body {
+    background-color: white;
+    overflow-x: hidden;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+#part1 {
+}
+
+#part2 {
+    background-color: #f8ecc2;
+    color: #2a2c05;
+    font-size: 110%;
+    font-family: teletype, monospace;
+}
+
+#part2 button {
+    background-color: #584c46;
+    border-color: black;
+    border-style: dashed ;
+    border-width: 3px;
+}
+
+#part3 {
+    background-color: black;
+    color: #00ff00;
+    font-family: monospace;
+}
+
+
+#part3 button {
+    background-color: black;
+    color: #00ff00;
+    border-color: #00ff00;
+    font-family: monospace;
+}
+
+#part4 {
+    background-color: #d9d9d9;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#part4 button {
+    background-color: grey;
+    color: lightgray;
+    border-color: lightgray;
+}
+
+#part4-2 {
+    background-color: blue;
+    color: white;
+    font-family: monospace;
+}
+
+#part4-2 button {
+    background-color: white;
+    color: black;
+    border-color: black; 
+    border-radius: 12px;
+}
+
+#part4-3 {
+    background-image: url('../images/wpbg.jpg');
+    background-size: cover;
+    color: white;
+}
+
+#part4-3 img {
+    border-color: white;
+}
+
+#part4-3 button {
+    background-color: transparent;
+}
+
+#part5 {
+    font-family: Helvetica, sans-serif;
+    background-image: url('../images/future.jpg');
+    background-size: cover;
+    color: black;
+    font-size: 17px;
+}
+
+#part5 button {
+    background-color: transparent;
+    color: black;
+    border-width: 4px;
+    border-color: black;
+}
+
+#page-header-wrapper {
+    text-align: center;
+    max-width: 850px;
+    background-color: #f9f9f9;
+    margin: auto;
+}
+
+#page-header-wrapper button {
+    border-radius: 50%;
+    height: 5em;
+    width: 5em;
+}
+
+#page-header-wrapper button:hover {
+    background-color: black;
+    color: #00ff00;
+}
+
+.page-header {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0;
+    line-height: 0.5px;
+}
+
+.main-content {
+    padding-top: 50px;
+    max-width: 850px;
+    height: 100%;
+    background-color:#f9f9f9;
+    margin: auto;
+    text-align: center;
+}
+
+.text-content {
+    max-width: 850px;
+    background-color:#f9f9f9;
+    margin: auto;
+    text-align: center;
+}
+
+.text-content img {
+    margin: 1em;
+    border: solid 1px gray;
+}
+
+
+#ctnbtn {
+    margin-top: 3em;
+    margin-bottom: 3em;
+    min-width: 100px;
+}
+
+.main-container {
+    height: 100%;
+    padding: 0;
+}
+
+.content-frame {
+    width: 100%;
+    min-height: 100%;
+    margin:auto;
+    border-style: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.primary-text {
+    margin: 1em auto 1em auto;
+    min-width: 350px !important;
+    max-width: 650px;
+    text-align: left;
+    line-height: 2em;
+}
+
+.side-margin { 
+    background-color: white;
+}
+
+@font-face {
+    font-family: teletype;
+    src: url('../fonts/teletype.ttf');
+}
+
+@font-face {
+    font-family: future;
+    src: url('../fonts/future.ttf')
+}
