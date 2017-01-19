@@ -1,9 +1,10 @@
 var canvas = document.getElementById("canvas");
 var c = canvas.getContext("2d");
-var x = 0, y = 15;
+var x = 0, y = 0;
 var img = new ImageData(1, 1);
 
 $(document).ready(function() {
+    $('#canvas').prop("width", $('.name-type').width());
     console.log("ready");
     // setInterval(function() {
     //     updateCanvas();
@@ -24,10 +25,11 @@ function updateCanvas() {
 }
 
 function renderCanvas() {
-    while(x < 126) {
+    var nameTypeW = $('.name-type').width();
+    while(x < nameTypeW/2) {
         c.putImageData(img, x+=2, y+=1);
     }
-    while(x < 250) {
+    while(x < nameTypeW) {
         c.putImageData(img, x+=2, y-=1);
     }
 }
