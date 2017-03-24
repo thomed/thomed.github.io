@@ -1,27 +1,11 @@
-/* 
-    Created on : Jan 11, 2017, 8:47:48 PM
-    Author     : thomas
-*/
-
 body {
-    background-color: #354458;
+    background-color: #3af;
 }
 
 .main-text {
-    color: #fff;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 300;
-    font-size: 3em;
-}
-
-.name-type {
-    max-width: 220px;
-    max-height: 220px;
-    margin-bottom: 0px;
-}
-
-.boxed-in {
-    border-style: solid;
+    color: #f0ffd0;
+    font-family: kaffeesatz, sans-serif;
+    font-size: 5em;
 }
 
 .center {
@@ -31,4 +15,10 @@ body {
 
 .text-center {
     text-align: center;
+}
+
+/* fonts */
+@font-face {
+    font-family: kaffeesatz;
+    src: url(../fonts/YanoneKaffeesatz-Regular.ttf);
 }
