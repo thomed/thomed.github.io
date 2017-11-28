@@ -1,0 +1,115 @@
+body {
+    background-color: #cecece;
+    cursor: default;
+}
+
+.drawing-area { 
+    text-align: center;
+    margin-top: 7em;
+    margin-left: 185px;
+}
+
+#grid-area {
+    margin-right: 170px;
+    pointer-events: fill;
+    white-space: nowrap;
+    display: inline-block;
+    background-color: white;
+    line-height: 0.5em;
+    background: url("../images/transparent.png");
+}
+
+.wee-div {
+    width: 15px;
+    height: 15px;
+    border: solid 1px black;
+    display: inline-block;
+    background-color: transparent;
+    margin-right: -1px;
+}
+
+.grid-row {
+    margin: -1px -0px;
+    height: 15px;
+}
+
+.change-color {
+    margin-top: 1em;
+}
+
+#user-options {
+    background-color: #1a1a1a;
+    color: white;
+    width: 177px;
+    height: 100%;
+    z-index: 0;
+    position: absolute;
+}
+
+#user-options  table {
+    width: 100%;
+}
+
+#user-options td {
+    padding: 1px 1em 1em 1em;
+}
+
+#user-options tr {
+    padding-bottom: 2em;
+}
+
+#user-options button {
+    color: white;
+}
+
+
+#user-options button:hover {
+    color: #c2c2c2;
+}
+
+#user-options label {
+    font-weight: 100;
+}
+
+#user-options .btn {
+    width: 100%;
+}
+
+.table-header {
+    background-color: #121212;
+    font-weight:  bold;
+    height: 50px;
+    margin-bottom: 1em;
+}
+
+#palette tr {
+    line-height: 0.5em;
+    height: 15px;
+}
+
+#palette td {
+    display: inline-block;
+    height: 15px !important;
+    width: 15px !important;
+    padding: 0;
+    margin: -1px;
+    border: solid 1px black;
+    background-color: #f8f8f8;
+}
+
+#palette td:hover {
+    cursor: pointer;
+}
+
+#scale-slider {
+    width: 100%;
+}
+
+.littler-glyph {
+    font-size: 12px;
+    margin-bottom: 0.5em;
+}
+
+.container-fluid {
+    padding: 0;
+}

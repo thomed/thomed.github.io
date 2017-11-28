@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grid Painter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="styles/jquery-ui.min.css" rel="stylesheet"/>
+        <link href="styles/jquery-ui.structure.min.css" rel="stylesheet"/>
+        <link href="styles/jquery-ui.theme.min.css" rel="stylesheet"/>
+        <link href="styles/mainstyle.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div id="user-options" class="navbar-fixed-top">
+                <table>
+                    <tr class="table-header">
+                        <td colspan="2">
+                            Drawing
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input id="color-text" class="jscolor" value="0000ff" size="6"/>
+                            <button class="btn-link" title="Add color to palette" onclick="addCurrentColorToPalette()"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table id="palette"></table>
+                        </td>
+                    </tr>
+                    <div id="tools">
+                        <tr>
+                            <td>
+                                <button class="btn-link" onclick="setErase()" title="Eraser"><span class="glyphicon glyphicon-erase"></span></button>
+                                <button id="eyedropper" class="btn-link" onclick="eyeDropping()" title="Eyedropper"><span class="glyphicon glyphicon-pushpin"></span></button>
+                                <button id="floodfill" class="btn-link" onclick="setFloodFill()" title="Floodfill">
+                                    <span class="glyphicon glyphicon-tint"></span>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </div>
+                    <div id="grid-options">
+                        <tr class="table-header">
+                            <td>
+                                Grid Options
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Grid Enabled: <input id="grid-checkbox" type="checkbox" checked/>
+                            </td>
+                        </tr>
+
+                        <div class="tools">
+                            <tr>
+                                <td>Rows:
+                                    <button class="btn-link littler-glyph" onclick="addRow()"><span class="glyphicon glyphicon-plus"></span></button>
+                                    <button class="btn-link littler-glyph" onclick="removeRow()"><span class="glyphicon glyphicon-minus"></span></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Columns:
+                                    <button class="btn-link littler-glyph" onclick="addColumn()"><span class="glyphicon glyphicon-plus"></span></button>
+                                    <button class="btn-link littler-glyph" onclick="removeColumn()"><span class="glyphicon glyphicon-minus"></span></button>
+                                </td>
+                            </tr>
+                            <tr><td colspan="2">Cell Scale:<div id="scale-slider"></div></td></tr>
+                            <tr><td><input id="clear-btn" class="btn btn-default" type="button" onclick="clearCanvas()" value="Clear" /></td></tr>
+
+                            <tr class="table-header">
+                                <td>Export</td>
+                            </tr>
+                            <tr><td><span id="export-scale">Scale: 1x</span>
+                                    <button class="btn-link littler-glyph" onclick="increaseExportScale()"><span class="glyphicon glyphicon-plus"></span></button>
+                                    <button class="btn-link littler-glyph" onclick="decreaseExportScale()"><span class="glyphicon glyphicon-minus"></span></button>
+                                </td>
+                            </tr>
+                            <tr><td><input id="download-btn" class="btn btn-default" type="button" value="Download" /></td></tr>
+                        </div>
+                    </div>
+                </table>
+            </div>
+
+            <div class="drawing-area">
+                <div id="grid-area" class="text-center" ondragstart="return false">
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="js/jscolor.min.js" ></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/scripts.js" ></script>
+    </body>
+</html>
