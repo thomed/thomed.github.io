@@ -8,14 +8,35 @@ body {
 header {
     font-size: 2em;
     margin: 0 0;
-    width: 100%;
     padding: 0.5em;
+}
+
+nav {
+    width: 170px;
+    height: 3em;
+    display: table;
+    justify-content: space-between;
 }
 
 nav a {
     color: white;
-    display: inline-block;
+    text-decoration: none;
     padding: 0;
+    height: 100%;
+}
+
+nav table {
+    height: 100%;
+    width: 100%;
+    text-align: left;
+    table-layout: fixed;
+}
+nav td:hover > a > object {
+    width: 1.8em;
+}
+
+nav td {
+margin: 0px;
 }
 
 #content-container {
@@ -26,9 +47,8 @@ nav a {
 }
 
 .icon {
-    fill: white;
     pointer-events: none;
-    width: 20px;
+    width: 1.7em;
 }
 
 .blinking-cursor {

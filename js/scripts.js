@@ -1,9 +1,17 @@
 $(function () {
-    console.log("test");
-
-    setTimeout(function () { typeThis("Thomas Walker", $("#header-name")) }, 500);
-    setTimeout(function() {showContentContainer()}, 1300);
+    setTimeout(function() {
+        tada();
+    }, 900);
+    // setTimeout(function () { typeThis("Thomas Walker", $("#header-name"))}, 900);
+    //setTimeout(function() {showContentContainer()}, 2100);
 });
+
+function tada() {
+    typeThis("Thomas Walker", $("#header-name"));
+    setTimeout(function() {
+        showContentContainer();
+    },2100);
+}
 
 function typeThis(text, element) {
     var index = 0;
@@ -16,11 +24,11 @@ function typeThis(text, element) {
             element.append(text.charAt(index));
             index++;
         }
-    }, 45);
+    }, 50);
 }
 
 function showContentContainer() {
     var height = $("#content-container").height();
     $("#content-container").css({"height" : "0px", "visibility": "visible"});
-    $("#content-container").animate({"height" : height + "px"}, 400);
+    $("#content-container").animate({"height" : height + "px"}, 300, "linear");
 }
