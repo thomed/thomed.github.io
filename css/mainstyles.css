@@ -1,86 +1,62 @@
+:root {
+	--lightcol: rgb(220, 220, 220);
+	--darkcol: rgb(90, 100, 110);
+}
+
 body {
-    background-color: rgb(15, 15, 15);
-    font-family: "Arial Black", sans-serif;
-    color: rgb(240, 240, 240);
-    margin: 0;
+	background-color: var(--lightcol);
+	font-family: "Arial Black", sans-serif;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow-y: hidden;
 }
 
-header {
-    font-size: 2em;
-    margin: 0 0;
-    padding: 0.5em;
-}
-
-nav {
-    width: 170px;
-    height: 3em;
-    display: table;
-    justify-content: space-between;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0;
-    height: 100%;
-}
-
-nav table {
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    table-layout: fixed;
-}
-nav td:hover > a > object {
-    width: 1.8em;
-}
-
-nav td {
-margin: 0px;
+hr {
+	width: 500px;
+	max-width: 90%;	
 }
 
 #content-container {
-    margin: 0em 1em;
-    /* height: 0px; */
-    overflow-y: hidden;
-    visibility: hidden;
+	color: var(--lightcol);
+	text-align: center;
+	height: 100%;
+	margin: auto;
+	background-color: var(--darkcol);
+	animation-name: tube;
+	animation-duration: 0.5s;
+	animation-fill-mode: forwards;
 }
 
-.icon {
-    pointer-events: none;
-    width: 1.7em;
+#content-container * {
+	opacity: 0;
+	animation-name: fadein;
+	animation-duration: 1s;
+	animation-delay: 0.4s;
+	animation-fill-mode: forwards;
 }
 
-.blinking-cursor {
-    font-size: 1em;
-    animation: 1s blink step-end infinite;
-    -webkit-animation: 1s blink step-end infinite;
-    -moz-animation: 1s blink step-end infinite;
+#part-one {
+	padding-top: 30vh;
 }
 
-@keyframes blink {
-    from, to {
-        color: transparent;
-    }
-    50% {
-        color: rgb(240, 240, 240);
-    }
+#part-two {
+	max-width: 500px;
+	margin: auto;
+	padding: 1em;
 }
 
-@-moz-keyframes blink {
-    from, to {
-        color: transparent;
-    }
-    50% {
-        color: rgb(240, 240, 240);
-    }
+#part-three {
+	padding: 1em;
+	margin: auto;
 }
 
-@-webkit-keyframes blink {
-    from, to {
-        color: transparent;
-    }
-    50% {
-        color: rgb(240, 240, 240);
-    }
+@keyframes fadein {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes tube {
+	from {max-width: 0px;}
+	to {max-width: 1000px}
 }
