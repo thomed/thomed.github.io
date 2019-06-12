@@ -13,6 +13,5 @@ body {
 canvas {
     border: 1px solid #0000ff;
 	image-rendering: pixelated;
-	max-width: 100%;
-	height: auto;
+	width: auto;
 }

@@ -5,8 +5,8 @@ var currentX, currentY;
 var innerRad = 1;
 var angle = 0;
 var r, g, b;
-var rMod = -1, gMod = 1, bMod = 1;
-var maxR = 100, maxG = 180, maxB = 255;
+var rMod = 1, gMod = 1, bMod = 1;
+var maxR = 255, maxG = 255, maxB = 255;
 
 function setup() {
 	//maxWidth = window.innerHeight;
@@ -17,12 +17,9 @@ function setup() {
 	y = maxWidth / 2;
 	currentX = x;
 	currentY = y;
-	r = randomSingle(50);
-	g = randomSingle(50);
-	b = randomSingle(50);
-	r = 20;
-	g = 0;
-	b = 10;
+	r = randomSingle(125);
+	g = randomSingle(125);
+	b = randomSingle(125);
 	fill(r, g, b);
 	background(r, g, b);
 	console.log("rgb: " + r + ", " + g + ", " + b);
@@ -44,7 +41,7 @@ function draw() {
 
 		if (r == maxR || r == 0) { rMod *= -1; }
 		if (g == maxG || g == 0) { gMod *= -1; }
-		//if (b == maxB || b == 0) { bMod *= -1; }
+		if (b == maxB || b == 0) { bMod *= -1; }
 	}
 
 	if (currentX < 0 - (innerRad * 2)) {
