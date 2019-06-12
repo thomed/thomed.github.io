@@ -10,7 +10,7 @@ function setup() {
 	//maxWidth = window.innerHeight;
 	maxWidth = 800;
 	createCanvas(maxWidth, maxWidth);
-	frameRate(60);
+	frameRate(120);
 	x = maxWidth / 2;
 	y = maxWidth / 2;
 	currentX = x;
@@ -20,6 +20,7 @@ function setup() {
 	b = randomSingle(50);
 	fill(r, g, b);
 	background(r, g, b);
+	console.log("rgb: " + r + ", " + g + ", " + b);
 }
 
 function draw() {
@@ -31,9 +32,9 @@ function draw() {
 
 	if (angle % 8 == 0) {
 		// slightly modify the params for randomSingle for different colors
-		r = clamp(r + randomSingle(4), 0, 255);
-		g = clamp(g + randomSingle(6), 0, 255);
-		b = clamp(b + randomSingle(6), 0, 255);
+		r = clamp(r + randomSingle(6), 0, 255);
+		g = clamp(g + randomSingle(7), 0, 255);
+		b = clamp(b + randomSingle(8), 0, 255);
 		fill(r, g, b);
 	}
 
