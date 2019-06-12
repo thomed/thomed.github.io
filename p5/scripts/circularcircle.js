@@ -5,6 +5,8 @@ var currentX, currentY;
 var innerRad = 1;
 var angle = 0;
 var r, g, b;
+var rMod = -1, gMod = 1, bMod = 1;
+var maxR = 100, maxG = 180, maxB = 255;
 
 function setup() {
 	//maxWidth = window.innerHeight;
@@ -18,6 +20,9 @@ function setup() {
 	r = randomSingle(50);
 	g = randomSingle(50);
 	b = randomSingle(50);
+	r = 20;
+	g = 0;
+	b = 10;
 	fill(r, g, b);
 	background(r, g, b);
 	console.log("rgb: " + r + ", " + g + ", " + b);
@@ -32,10 +37,14 @@ function draw() {
 
 	if (angle % 8 == 0) {
 		// slightly modify the params for randomSingle for different colors
-		r = clamp(r + randomSingle(6), 0, 255);
-		g = clamp(g + randomSingle(7), 0, 255);
-		b = clamp(b + randomSingle(8), 0, 255);
+		r = clamp(r + (randomSingle(5) * rMod), 0, maxR);
+		g = clamp(g + (randomSingle(8) * gMod), 0, maxG);
+		b = clamp(b + (randomSingle(7) * bMod), 0, maxB);
 		fill(r, g, b);
+
+		if (r == maxR || r == 0) { rMod *= -1; }
+		if (g == maxG || g == 0) { gMod *= -1; }
+		//if (b == maxB || b == 0) { bMod *= -1; }
 	}
 
 	if (currentX < 0 - (innerRad * 2)) {
