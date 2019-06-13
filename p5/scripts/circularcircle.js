@@ -7,6 +7,7 @@ var angle = 0;
 var r, g, b;
 var rMod, gMod, bMod;
 var maxR = 255, maxG = 255, maxB = 255;
+var playing = 1;
 
 function setup() {
 	//maxWidth = window.innerHeight;
@@ -25,7 +26,9 @@ function setup() {
 	bMod = randomSingle(10) < 5 ? -1 : 1;
 	fill(r, g, b);
 	background(r, g, b);
-	console.log("rgb: " + r + ", " + g + ", " + b);
+
+	document.getElementsByTagName('canvas')[0].addEventListener('click', togglePlay);
+	document.getElementsByTagName('canvas')[0].addEventListener('touchstart', togglePlay);
 }
 
 function draw() {
@@ -50,6 +53,15 @@ function draw() {
 	if (currentX < 0 - (innerRad * 2)) {
 		frameRate(0);
 	}
+}
+
+function togglePlay() {
+	if (playing) {
+		noLoop();
+	} else {
+		loop();
+	}
+	playing = !playing;
 }
 
 function randomSingle(max) {
