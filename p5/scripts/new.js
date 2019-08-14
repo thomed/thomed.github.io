@@ -1,51 +1,79 @@
 var width, height;
-var x, y, startX, startY, nextX, nextY;
-var scaleX = 0.5;
+var startX, startY;
+var margin;
+var shapeWidth;
+var squares = [];
+var numWide, numTall;
 
-var baseWidth, baseHeight;
-var limitY;
+class Square {
+	constructor(x, y, width) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.r = randomSingle(255);
+		this.g = randomSingle(255);
+		this.b = randomSingle(255);
+		this.angle = 0;
+	}
+
+	draw() {
+		if (mouseInSquare(this)) {
+			this.angle += 0.01;
+		}
+
+		// rectMode(CENTER);
+		rotate(this.angle);
+		fill(this.r, this.g, this.b);
+		//square(this.x, this.y, this.width);
+		rect(this.x, this.y, this.width, this.width);
+		// this.angle -= 0.01;
+	}
+
+}
 
 function setup() {
-	width = window.innerWidth;
+	width = 480;
 	height = 480;
-	//startX = width / 2;
-	startX = 0;
-	startY = 0;
-	baseWidth = 50;
-	baseHeight = 250;
-	limitY = height + baseHeight;
-	x = 0;
-	y = 0;
-	nextX = x;
+	shapeWidth = 25;
+	margin = 4;
+	startX = margin;
+	startY = margin;
+	x = startX;
+	y = startY;
+	rectMode(CENTER);
+
+	for (var i = 0; y < height; i++) {
+		for (var j = 0; x < width; j++) {
+			squares[squares.length] = new Square(x, y, shapeWidth);
+			x += shapeWidth + margin;
+		}
+		x = startX;
+		y += shapeWidth + margin;
+	}
+
+//	squares[0] = new Square(margin, margin, shapeWidth);
+
 	createCanvas(width, height);
-	frameRate(60);
+	frameRate(10);
 }
 
 function draw() {
-	// nextX += 1;
-	// nextY = (Math.pow(nextX * scaleX, 2));
-	// line(startX + x, startY + y, startX + nextX, startY + nextY);
-	// line(startX - x, startY + y, startX - nextX, startY + nextY);
-	// x = nextX;
-	// y = nextY;
-	makeShape(startX, startY, baseWidth, baseHeight);
-	startY += 30;
-
-	if (startY > limitY) {
-		startY = 0;
-		startX += 20;
+	clear();
+	for (var i = 0; i < squares.length; i++) {
+		push();
+		squares[i].draw();
+		pop();
 	}
 
-	if (startX > width) {
-		noLoop();
+	if (x > width) {
+		x = startX;
+		startY += 10;
+		y = startY;
 	}
 }
 
-function makeShape(startX, startY, shapeWidth, shapeHeight) {
-	beginShape();
-	vertex(startX, startY);
-	quadraticVertex(startX + shapeWidth / 2, startY - shapeHeight, startX + shapeWidth, startY);
-	endShape(CLOSE);
+function mouseInSquare(square) {
+	return (mouseX > square.x) && (mouseY > square.y) && (mouseX < square.x + square.width) && (mouseY < square.y + square.width);
 }
 
 function randomSingle() {
