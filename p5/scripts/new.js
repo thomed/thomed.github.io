@@ -1,54 +1,50 @@
-/**
- * promising directions for function for northern side of canyon:
- * y = sqrt(x) * xrt(x)
- * y = xrt(logx)
- */
-
 // canvas related
 var width, height;
 
 // drawing
+var startX, startY;
 var skyColor;
 var mtnColor;
 var peakColor;
 var mtn;
-var startX, startY;
 
 class Mountain {
-	recWidth = 4; 
-	recHeight = 50;
-	heightMod = 50;
-	capStart = 34;
-	currentStep = 0;
-	maxStep = 100;
+	recWidth = 4;		// width of rectangles
+	recHeight = 5;		// height of initial rectangle
+	heightMod = 50;		// add to rectangle height
+	baseHeightMod = 50;	// starting heightmod
+	capStart = 34;		// rectangles taller than this will have snow
+	currentStep = 0;	// count for math fn (basically isolated x)
+	maxStep = 85;		// restart mnt after this many steps
 
 	constructor(baseX, baseY) {
 		this.x = baseX;
 		this.y = baseY;
 	}
 	
+	// calculate the next step of the mountain
 	step() {
-		if (this.currentStep > this.maxStep) {
-
-			this.currentStep = 0;
-		}
-
 		this.x += this.recWidth + 1;
-
 		this.recHeight = -Math.abs((this.currentStep - (this.maxStep / 2))) + this.heightMod;
 		this.recHeight += randomDifference(3);
-
 		this.currentStep++;
+
+		if (this.currentStep > this.maxStep * 0.7 && randomSingle(10) > 4) {
+			console.log("HeightMod = " + this.heightMod + ". RecHeight = " + this.recHeight);
+			this.heightMod = this.recHeight + this.baseHeightMod - 5;
+			this.currentStep = 0;
+		}
 	}
 
+	// draw rectangles for this step
 	draw() {
 		rect(this.x, this.y - this.recHeight, this.recWidth, this.recHeight);
 
-		//if (this.currentStep >= this.maxStep * 0.33 && this.currentStep <= this.maxStep * 0.66) {
+		// snow caps
 		if (this.recHeight >= this.capStart) {
-			fill(peakColor);
-			//rect(this.x, this.y - this.recHeight, this.recWidth, this.recHeight * 0.2);
 			var capHeight = this.recHeight - this.capStart + randomDifference(3);
+
+			fill(peakColor);
 			rect(this.x, this.y - this.recHeight, this.recWidth, capHeight);
 			fill(mtnColor);
 		}
@@ -78,24 +74,20 @@ function setup() {
 
 function draw() {
 	// stop running after passing the edge of canvas
-	if (x > width) {
+	if (mtn.x > width) {
 		frameRate(0);
 		console.log("done");
 	}
 
-//	fill(150, 130, 120);
 	fill(mtnColor);
-
-	// y = 40 * log_10(x + 1)^(log_100(x+1)
-//	recHeight = 40 * Math.pow(Math.log10(x + 1), 1 / (Math.log(x + 1) / Math.log(100)));
 
 	mtn.draw();
 	mtn.step();
 }
 
-// random [0, 255]
-function randomSingle() {
-	return Math.floor(Math.random() * 255);
+// random [0, max]
+function randomSingle(max) {
+	return Math.floor(Math.random() * max);
 }
 
 // return a random modifier between +- max to add roughness
