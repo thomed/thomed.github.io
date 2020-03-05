@@ -1,4 +1,5 @@
 // canvas related
+var canvas;
 var width, height;
 
 // drawing
@@ -74,7 +75,8 @@ function setup() {
 	mtn = new Mountain(startX, height);
 	console.log(mtn);
 	
-	createCanvas(width, height);
+	canvas = createCanvas(width, height);
+	canvas.id("mtncanvas");
 	frameRate(60);
 	noStroke();
 	background(skyColor);
@@ -85,14 +87,31 @@ function draw() {
 	if (mtn.x < width) {
 		mtn.draw();
 		mtn.step();
+		fill(mtnColor);
 	} else {
 		frameRate(0);
-		console.log("done");
+		mtn.x = width;
+//		console.log("done");
 	}
+}
 
-	fill(mtnColor);
+function windowResized() {
+	frameRate(0);
+	var p5img;
+	var currentImg = new Image();
+	var currentData = canvas.canvas.toDataURL();
+	currentImg.src = currentData;
 
-
+	currentImg.onload = function() {
+		width = window.innerWidth;
+		resizeCanvas(width, height);
+		p5img = createImage(currentImg.width, currentImg.height);
+		p5img.drawingContext.drawImage(currentImg, 0, 0);
+		background(skyColor);
+		image(p5img, 0, 0);
+		mtn.x -= mtn.recWidth;
+		frameRate(60);
+	}
 }
 
 // random [0, max]
