@@ -1,26 +1,31 @@
 :root {
 	--skyblue: #87c5f8;
+	--skybluedark: #6a9dfa;
 	--lightcol: rgb(220, 220, 220);
-	--darkcol: rgb(90, 100, 110);
+	--darkcol: rgb(70, 90, 90);
+	/*--darkcol: rgb(90, 100, 110);*/
+}
+
+html {
+	height: 100%;
 }
 
 body {
-	/*background-color: var(--lightcol);*/
-	background-color: var(--skyblue);
+	background: linear-gradient(var(--skybluedark) 65%, var(--skyblue));
 	font-family: 'Munro', monospace;
 	margin: 0;
-	/*width: 100vw;*/
-	/*height: 100%;*/
 }
 
 hr {
 	width: 500px;
 	max-width: 90%;	
+	color: var(--darkcol);
 }
 
 #mtncanvas {
 	position: absolute;
 	bottom: 0;
+	pointer-events: none;
 }
 
 #content-container {
@@ -28,7 +33,6 @@ hr {
 	text-align: center;
 	height: 100%;
 	margin: 50px;
-	/*background-color: var(--darkcol);*/
 }
 
 #content-container * {
@@ -42,3 +46,4 @@ hr {
 	font-family: 'Munro';
 	src: url('./fonts/Munro.ttf') format('truetype');
 }
+

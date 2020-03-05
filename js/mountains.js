@@ -15,6 +15,8 @@ class Mountain {
 	heightMod = 50;		// add to rectangle height
 	baseHeightMod = 50;	// starting heightmod
 	capStart = 40;		// rectangles taller than this will have snow
+	capMin = 35;
+	capMax = 80;
 	currentStep = 0;	// count for math fn (basically isolated x)
 	maxStep = 85;		// restart mnt after this many steps
 	absMult = 1;
@@ -50,8 +52,9 @@ class Mountain {
 
 		// snow caps
 		if (this.recHeight >= this.capStart) {
-			var capHeight = this.recHeight - this.capStart + randomDifference(4);
+			this.capStart = clamp(this.capStart + randomDifference(4), this.capMin, this.capMax);
 
+			var capHeight = this.recHeight - this.capStart + randomDifference(4);
 			fill(peakColor);
 			rect(this.x, this.y - this.recHeight, this.recWidth, capHeight);
 			fill(mtnColor);
@@ -62,14 +65,14 @@ class Mountain {
 
 function setup() {
 	width = window.innerWidth;
-	height = 480;
+	height = 200;
 	startX = 0;
 	startY = height;
 	x = 0;
 	y = height / 2;
 
 	skyColor = color('#60baff');
-	mtnColor = color('#998877');
+	mtnColor = color('#7a9a77');
 	peakColor = color('#ddeafa');
 	mtn = new Mountain(startX, startY);
 	
@@ -114,6 +117,16 @@ function windowResized() {
 		mtn.x -= mtn.recWidth;
 		frameRate(60);
 	}
+}
+
+function clamp(val, min, max) {
+	if (val < min) {
+		return min;
+	} else if (val > max) {
+		return max;
+	}
+
+	return val;
 }
 
 // random [0, max]
