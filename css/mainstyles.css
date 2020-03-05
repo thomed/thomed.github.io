@@ -1,9 +1,9 @@
 :root {
-	--skyblue: #87c5f8;
+	--skyblue: #87baf5;
 	--skybluedark: #6a9dfa;
-	--lightcol: rgb(220, 220, 220);
-	--darkcol: rgb(70, 90, 90);
-	/*--darkcol: rgb(90, 100, 110);*/
+	--lightcol: #dcdcdc;
+	--medcol: #828282;
+	--darkcol: #465a5a;
 }
 
 html {
@@ -16,10 +16,25 @@ body {
 	margin: 0;
 }
 
+a {
+	color: var(--darkcol);
+}
+
+a:hover {
+	color: var(--lightcol);
+}
+
+nav > a {
+	margin: auto 1em;
+}
+
 hr {
 	width: 500px;
 	max-width: 90%;	
-	color: var(--darkcol);
+	border: 0;
+	height: 1px;
+	/*background: linear-gradient(to right, var(--medcol), var(--darkcol), var(--medcol));*/
+	background-color: var(--darkcol);
 }
 
 #mtncanvas {
@@ -32,10 +47,7 @@ hr {
 	color: var(--darkcol);
 	text-align: center;
 	height: 100%;
-	margin: 50px;
-}
-
-#content-container * {
+	margin-top: 20vh;
 }
 
 .redtext {
