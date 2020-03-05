@@ -48,6 +48,7 @@ class Mountain {
 			return;
 		}
 
+		fill(mtnColor);
 		rect(this.x, this.y - this.recHeight, this.recWidth, this.recHeight);
 
 		// snow caps
@@ -57,7 +58,6 @@ class Mountain {
 			var capHeight = this.recHeight - this.capStart + randomDifference(4);
 			fill(peakColor);
 			rect(this.x, this.y - this.recHeight, this.recWidth, capHeight);
-			fill(mtnColor);
 		}
 	}
 
@@ -72,8 +72,8 @@ function setup() {
 	y = height / 2;
 
 	skyColor = color('#60baff');
-	mtnColor = color('#7a9a77');
-	peakColor = color('#ddeafa');
+	mtnColor = color('#7a8469');
+	peakColor = color('#ced9ef');
 	mtn = new Mountain(startX, startY);
 	
 	canvas = createCanvas(width, height);
