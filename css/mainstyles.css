@@ -1,15 +1,16 @@
 :root {
+	--skyblue: #87c5f8;
 	--lightcol: rgb(220, 220, 220);
 	--darkcol: rgb(90, 100, 110);
 }
 
 body {
-	background-color: var(--lightcol);
-	font-family: "Arial Black", sans-serif;
+	/*background-color: var(--lightcol);*/
+	background-color: var(--skyblue);
+	font-family: 'Munro', monospace;
 	margin: 0;
-	width: 100vw;
-	height: 100vh;
-	/* overflow-y: hidden; */
+	/*width: 100vw;*/
+	/*height: 100%;*/
 }
 
 hr {
@@ -17,46 +18,27 @@ hr {
 	max-width: 90%;	
 }
 
+#mtncanvas {
+	position: absolute;
+	bottom: 0;
+}
+
 #content-container {
-	color: var(--lightcol);
+	color: var(--darkcol);
 	text-align: center;
 	height: 100%;
-	margin: auto;
-	background-color: var(--darkcol);
-	animation-name: tube;
-	animation-duration: 0.5s;
-	animation-fill-mode: forwards;
+	margin: 50px;
+	/*background-color: var(--darkcol);*/
 }
 
 #content-container * {
-	opacity: 0;
-	animation-name: fadein;
-	animation-duration: 1s;
-	animation-delay: 0.4s;
-	animation-fill-mode: forwards;
 }
 
-#part-one {
-	padding-top: 30vh;
+.redtext {
+	color: #CC0000;
 }
 
-#part-two {
-	max-width: 500px;
-	margin: auto;
-	padding: 1em;
-}
-
-#part-three {
-	padding: 1em;
-	margin: auto;
-}
-
-@keyframes fadein {
-	from {opacity: 0;}
-	to {opacity: 1;}
-}
-
-@keyframes tube {
-	from {max-width: 0px;}
-	to {max-width: 1000px}
+@font-face {
+	font-family: 'Munro';
+	src: url('./fonts/Munro.ttf') format('truetype');
 }
