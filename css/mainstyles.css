@@ -7,13 +7,16 @@
 }
 
 html {
-	height: 100%;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(var(--skybluedark) 65%, var(--skyblue));
 }
 
 body {
-	background: linear-gradient(var(--skybluedark) 65%, var(--skyblue));
 	font-family: 'Munro', monospace;
 	margin: 0;
+	height: 100%;
 }
 
 a {
@@ -37,6 +40,15 @@ hr {
 	background-color: var(--darkcol);
 }
 
+i {
+	font-size: 24px;
+}
+
+iframe {
+	display: inline-block;
+	margin: 3px;
+}
+
 #mtncanvas {
 	position: absolute;
 	bottom: 0;
@@ -47,7 +59,11 @@ hr {
 	color: var(--darkcol);
 	text-align: center;
 	height: 100%;
+	margin: auto;
+	padding: 0 3em;
+	max-width: 800px;
 	margin-top: 20vh;
+	margin-bottom: 3em;
 }
 
 .redtext {
