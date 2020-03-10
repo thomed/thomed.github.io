@@ -1,16 +1,18 @@
 :root {
-	--skyblue: #87baf5;
-	--skybluedark: #6a9dfa;
+	--skyblue: #73a8f0;
+/**	--skybluedark: #6a9dfa; **/
+/**	--skyblue: #6a9dfa; **/
+	--skybluedark: #5d94fb;
 	--lightcol: #dcdcdc;
 	--medcol: #828282;
-	--darkcol: #465a5a;
+	--darkcol: #343d38;
 }
 
 html {
 	min-height: 100%;
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(var(--skybluedark) 65%, var(--skyblue));
+	background: linear-gradient(var(--skybluedark) 60%, var(--skyblue));
 }
 
 body {
