@@ -16,7 +16,7 @@ html {
 }
 
 body {
-	font-family: 'Munro', monospace;
+	font-family: 'DigitalDisco', monospace;
 	margin: 0;
 	height: 100%;
 }
@@ -73,7 +73,12 @@ iframe {
 }
 
 @font-face {
-	font-family: 'Munro';
-	src: url('./fonts/Munro.ttf') format('truetype');
+	font-family: 'Silkscreen';
+	src: url('./fonts/silkscreen.ttf') format('truetype');
 }
 
+/** DigitalDisco : https://fontenddev.com/fonts/digital-disco/ **/
+@font-face {
+	font-family: 'DigitalDisco';
+	src: url('./fonts/DigitalDisco.ttf') format('truetype');
+}
