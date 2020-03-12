@@ -56,7 +56,7 @@ class Mountain {
 		}
 
 		// starting a new peak some time after this peak
-		if (this.currentStep > this.maxStep * 0.6 && randomSingle(10) > 4) {
+		if (this.recHeight < 130 && this.currentStep > this.maxStep * 0.6 && randomSingle(10) > 3) {
 			this.heightMod = this.recHeight + this.baseHeightMod - 5;
 			this.currentStep = 0;
 			this.absMult = randomSingle(2) + 1;
@@ -115,6 +115,7 @@ function setup() {
 function draw() {
 	// stop running after passing the edge of canvas
 	if (mtn.x < width) {
+		mtn.draw(); // double draw for double speed
 		mtn.draw();
 	} else {
 		frameRate(0);
