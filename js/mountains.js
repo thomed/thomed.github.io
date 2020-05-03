@@ -35,7 +35,7 @@ class Mountain {
 	constructor(baseX, baseY) {
 		this.x = baseX - this.recWidth;
 		this.y = baseY;
-		this.currentStep = randomSingle(this.maxStep / 3);
+		this.currentStep = randomSingle(this.maxStep);
 	}
 	
 	// calculate the next step of the mountain

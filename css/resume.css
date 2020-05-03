@@ -1,0 +1,116 @@
+:root {
+    --lightblue: #0088DD;
+    --lightgray: #515151;
+    --darkgray: #3F3F3F;
+}
+
+a {
+    color: var(--lightblue);
+    text-decoration: none;
+}
+
+/* a:visited {
+    color: var(--lightblue);
+} */
+
+body {
+    font-family: "FiraSans", sans-serif;
+    color: var(--darkgray);
+}
+
+header {
+    margin: auto;
+    text-align: center;
+}
+
+header * {
+    margin: 0.5em auto;
+}
+
+header * span {
+    cursor: pointer;
+}
+
+.section-content > ul {
+    font-size: small;
+}
+
+.skill-section > ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: smaller;
+    color: var(--lightgray);
+}
+
+#main-content {
+    margin-top: 3em;
+}
+
+#page {
+    border: 1px solid black;
+    box-shadow: 3px 3px 3px gray;
+    max-width: 850px;
+    padding: 3em 2em 5em 2em;
+    margin: auto;
+}
+
+.contact-info {
+    color: var(--lightblue);
+}
+
+.section-content {
+    margin: auto 2em;
+}
+
+.section-desc {
+    font-style: italic;
+}
+
+.section-title {
+    color: var(--darkgray);
+    font-variant: small-caps;
+}
+
+.section-header, .section-desc, .section-content > small {
+    margin: 0.5em 0;
+    color: var(--lightgray);
+}
+
+.skill-section {
+    flex: 1 0 150px;
+    margin-bottom: 2em;
+    margin-right: 1em;
+}
+
+.skills-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-content: space-between; */
+    align-content: stretch;
+    /* align-items: flex-start; */
+}
+
+.symbol {
+    color: var(--lightgray);
+}
+
+@font-face {
+    src: url("./fonts/FiraSans-Regular.ttf");
+    font-family: "FiraSans";
+}
+
+/* @media only screen and (max-width: 620px) { */
+/*      */
+/* } */
+
+@media print, (max-width: 750px) {
+    #page {
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+        margin: 4.5em auto;
+    }
+}
+
