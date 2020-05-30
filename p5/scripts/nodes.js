@@ -3,10 +3,13 @@ var canvas;
 var width, height;
 
 // drawing related
-//var x, y;
+var strokewidth = 8;
 var nodes = [];
+var roots = [];
 var spacing;
 var margin;
+var numNodes;
+var hnodes, vnodes;
 
 class Node {
 
@@ -14,15 +17,54 @@ class Node {
 	lright = null;
 	uleft = null;
 	uright = null;
+	next = null;
+	path = [];
 
 	constructor(x, y) {
 		this.x = x;
 		this.y = y;
 	}
 
+	chooseNext() {
+		var r = randomSingle(4);
+		if (r == 0 && this.lright != null) {
+			this.next = this.lright;
+		} else if (r == 1 && this.lleft != null) {
+			this.next = this.lleft;
+		} else if (r == 2 && this.uright != null) {
+			this.next = this.uright;
+		} else if (r == 3 && this.uleft != null) {
+			this.next = this.uleft;
+		}
+
+		return this.next;
+	}
+
 	draw() {
-		point(this.x, this.y);
-//		stroke("#8fc0ff");
+//		point(this.x, this.y);
+
+		var last = this.path[this.path.length - 1];
+		if (last != null) {
+			var n = last.chooseNext();
+			this.path.push(n);
+		} else {
+			this.path.pop();
+		}
+
+		
+		for (i = this.path.length - 2; i < this.path.length - 1; i++) {
+			if (this.path[i + 1] == null) {
+				continue;
+			}
+
+			// symmetry
+			line(this.path[i].x, this.path[i].y, this.path[i + 1].x, this.path[i + 1].y);
+			line(this.path[i].y, this.path[i].x, this.path[i + 1].y, this.path[i + 1].x);
+			//line(this.path[i].x, height - this.path[i].y, this.path[i + 1].x, height - this.path[i + 1].y);
+			//line(width - this.path[i].x, this.path[i].y, width - this.path[i + 1].x, this.path[i + 1].y);
+			line(width - this.path[i].x, height - this.path[i].y, width - this.path[i + 1].x, height - this.path[i + 1].y);
+			line(width - this.path[i].y, height - this.path[i].x, width - this.path[i + 1].y, height - this.path[i + 1].x);
+		}
 	}
 }
 
@@ -30,7 +72,12 @@ function setup() {
 	width = 800;
 	height = 800;
 	margin = 50;
-	spacing = 25;
+	spacing = 10;
+
+	hnodes = Math.floor((width - (2 * margin)) / spacing);
+	vnodes = Math.floor((height - (2 * margin)) / spacing);
+	numNodes = hnodes * vnodes;
+	console.log(numNodes);
 
 	var x = margin;
 	var y = margin;
@@ -73,23 +120,37 @@ function setup() {
 		}
 	}
 
+
+	// random root locations
+//	for (rootCount = 0; rootCount < 4; rootCount++) {
+//		roots.push(nodes[randomSingle(nodes.length)][randomSingle(nodes[rootCount].length)]);
+//		roots[rootCount].path.push(roots[rootCount]);
+//	}
+
+	// center node
+	roots.push(nodes[Math.floor(nodes.length / 2)][Math.floor(nodes[0].length / 2)]);
+	roots[roots.length - 1].path.push(roots[roots.length - 1]);
+
 	// p5 config
 	canvas = createCanvas(width, height);
 	frameRate(60);
 	background("#2b2b2b");
-	stroke("#8fc0ff")
-	strokeWeight(10);
+	stroke("#b0a0ff");
+	stroke("#5599ee");
+	strokeWeight(strokewidth);
+}
+
+function mouseClicked() {
+	var fr = frameRate();
+	frameRate(fr > 0 ? 0 : 60);
 }
 
 function draw() {
-	clear();
-	background("#2b2b2b");
-	for (i = 0; i < nodes.length; i++) {
-		for (j = 0; j < nodes[0].length; j++) {
-			nodes[i][j].draw();
+	roots.forEach(function(r) {
+		for (drawCount = 0; drawCount < 2; drawCount++) {
+			r.draw();
 		}
-	}
-
+	});
 }
 
 // random [0, max]
