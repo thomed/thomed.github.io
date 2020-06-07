@@ -28,8 +28,16 @@ a:hover {
 	color: var(--lightcol);
 }
 
+a:active, a:focus {
+	outline: none;
+}
+
 nav > a {
-	margin: auto 1em;
+	margin: auto 0.5em;
+}
+
+h2, h3, h4, h5 {
+	font-family: 'DeterminationMono';
 }
 
 hr {
@@ -45,8 +53,8 @@ i {
 }
 
 iframe {
-	display: inline-block;
-	margin: 3px;
+	margin: 1em auto;
+	height: 150px;
 }
 
 #mtncanvas {
@@ -62,7 +70,7 @@ iframe {
 	margin: auto;
 	padding: 0 3em;
 	max-width: 800px;
-	margin-top: 20vh;
+	margin-top: 15vh;
 	margin-bottom: 3em;
 }
 
@@ -77,6 +85,27 @@ iframe {
 
 #main-content > p {
 	font-family: 'DeterminationMono';
+	text-align: left;
+}
+
+.flex-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: stretch;
+}
+
+.flex-item {
+	flex: 1 0 auto;
+}
+
+.flex-item > img {
+	max-width: 250px;
+	max-height: 250px;
+	border: 1px solid black;
+}
+
+.left-align {
 	text-align: left;
 }
 
@@ -100,6 +129,7 @@ iframe {
 	src: url('./fonts/Larceny.ttf') format('truetype');
 }
 
+/** DeterminationMono : https://www.fontspace.com/determination-mono-web-font-f23209 **/
 @font-face {
 	font-family: 'DeterminationMono';
 	src: url('./fonts/DeterminationMonoWeb.woff') format('woff');
