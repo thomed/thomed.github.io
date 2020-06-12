@@ -105,6 +105,16 @@ iframe {
 	border: 1px solid black;
 }
 
+.icon-nav {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+.icon-nav i {
+	font-size: 32px;
+}
+
 .left-align {
 	text-align: left;
 }
