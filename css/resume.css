@@ -27,6 +27,10 @@ header * span {
     cursor: pointer;
 }
 
+li {
+    margin-bottom: 0.5em;
+}
+
 .section-content > ul {
     font-size: small;
 }
