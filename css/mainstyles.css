@@ -36,6 +36,10 @@ nav > a {
 	margin: auto 0.5em;
 }
 
+h1 {
+	font-size: x-large;
+}
+
 h2, h3, h4, h5 {
 	font-family: 'DeterminationMono';
 }
