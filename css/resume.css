@@ -55,7 +55,7 @@ li {
     box-shadow: 3px 3px 3px gray;
     max-width: 850px;
     min-height: 1100px;
-    padding: 3em 2em 5em 2em;
+    padding: 5em 3em 5em 3em;
     margin: auto auto 3em auto;
 }
 
@@ -114,8 +114,8 @@ li {
         border: none;
         box-shadow: none;
         max-width: 100%;
-        padding: 0;
-        margin: 3.5em auto;
+        padding: 1em;
+        margin: 2em auto;
     }
 
 }
