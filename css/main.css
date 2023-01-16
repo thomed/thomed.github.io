@@ -1,0 +1,102 @@
+:root {
+	--bg-dark: #000000;
+	--bg-med: #1c1c1c;
+	--bg-light: #555566;
+	--fg-light: #ffffff;
+	--sky-dark: #0668bf;
+	--sky-light: #609fac;
+}
+
+body {
+	background-color: var(--bg-dark);
+	color: var(--fg-light);
+	font-family: monospace;
+	margin: 0;
+	padding: 10px;
+}
+
+#👋 {
+	position: relative;
+	left: 0;
+	top: 0;
+	font-size: x-large;
+	cursor: pointer;
+	display: none;
+}
+
+.main-content {
+	max-width: 580px;
+	margin: 2em auto;
+	
+}
+
+#hey-content {
+	margin: auto;
+	padding: 10px;
+	outline: 3px solid var(--fg-light);
+	/** min-width: 580px; **/
+	width: auto;
+	min-height: 248px;
+	display: flex;
+}
+
+.hey-container {
+	width: 100%;
+}
+
+#mtncanvas {
+	position: absolute;
+	margin: -10px;
+	z-index: -1;
+	background: linear-gradient(var(--sky-dark) , 50%, var(--sky-light));
+}
+
+#mtn-btn {
+	cursor: pointer;
+	margin: -8px;
+	padding: 3px;
+	position: relative;
+	align-self: end;
+	opacity: 0.2;
+}
+
+#mtn-btn:hover {
+	opacity: 0.7;
+	color: var(--bg-med);
+}
+
+.tabs {
+	margin: 2em auto;
+}
+
+.tabs-header {
+	margin: 0.5em auto;
+}
+
+.tabs-header a {
+	color: var(--fg-light);
+	background-color: var(--bg-med);
+	text-decoration: none;
+	border: 2px solid var(--bg-light);
+	padding: 0.5em 1em;
+}
+
+.tabs-header a:active {
+	background-color: var(--bg-light); 
+}
+
+.tabs-container {
+	border: 2px solid var(--bg-light);
+	background-color: var(--bg-med);
+	min-height: 3em;
+}
+
+.tab-item:not(:target) {
+	display: none;
+}
+
+.tab-item:target {
+	display: block;
+	margin: 1em;
+}
+
