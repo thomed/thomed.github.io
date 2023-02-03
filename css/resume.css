@@ -71,6 +71,10 @@ li {
     height: 0;
 }
 
+.print-only {
+    display: none;
+}
+
 .section-content {
     margin: auto 2em;
 }
@@ -109,6 +113,12 @@ li {
     font-family: "FiraSans";
 }
 
+@media print {
+    .print-only {
+        display: inline;
+    }
+}
+
 @media print, (max-width: 750px) {
     #page {
         border: none;
@@ -117,5 +127,4 @@ li {
         padding: 1em;
         margin: 2em auto;
     }
-
 }
