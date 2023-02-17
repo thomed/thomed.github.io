@@ -79,6 +79,10 @@ li {
     margin: auto 2em;
 }
 
+p {
+    font-size: smaller;
+}
+
 .section-desc {
     font-style: italic;
 }
