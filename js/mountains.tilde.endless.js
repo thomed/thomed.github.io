@@ -8,6 +8,9 @@ var skyColor;
 var mtnColor;
 var peakColor;
 var mtn;
+var cache = [];
+
+const recWidth = 3;
 
 
 class Mountain {
@@ -24,14 +27,14 @@ class Mountain {
     absMult = 1;         // modify absolute value fn
 
     constructor(baseX, baseY) {
-        this.x = baseX - this.recWidth;
+        // this.x = baseX - this.recWidth;
         this.y = baseY;
         this.currentStep = randomSingle(this.maxStep);
     }
 
     // calculate the next step of the mountain
     step() {
-        this.x += this.recWidth;
+        // this.x += this.recWidth;
         this.recHeight = -Math.abs((this.absMult * this.currentStep - (this.maxStep / 2))) + this.heightMod;
         this.recHeight += randomDifference(2);
         this.currentStep++;
@@ -46,23 +49,11 @@ class Mountain {
         }
 
         // starting a new peak some time after this peak
-        if (this.recHeight < 100 && this.currentStep > this.maxStep * 0.6 && randomSingle(10) > 2) {
+        if (this.recHeight < 100 && this.currentStep > this.maxStep * 0.73 && randomSingle(10) > 2) {
             this.heightMod = this.recHeight + this.baseHeightMod - this.capMin;
             this.currentStep = 0;
             this.absMult = randomSingle(2) + 1;
         }
-    }
-
-    // draw rectangles for this step
-    draw() {
-        if (this.recHeight <= 0) { return; }
-
-        mtn.step();
-
-        fill(mtnColor);
-        rect(this.x, this.y - this.recHeight, this.recWidth, this.recHeight);
-        fill(peakColor);
-        rect(this.x, this.y - this.recHeight, this.recWidth, this.capHeight);
     }
 
 };
@@ -76,13 +67,14 @@ function setup() {
     height = parentEl.offsetHeight;
     startX = 0;
     startY = height;
-    x = 0;
+    cache = [];
 
     skyColor = color('#509adf');
     mtnColor = color('#7a8469');
     mtnColor = color('#5e6354');
     peakColor = color('#ced9ef');
     mtn = new Mountain(startX, startY);
+    cache.push(mtn);
 
     canvas = createCanvas(width, height);
     canvas.id("mtncanvas");
@@ -96,13 +88,27 @@ function setup() {
  * Handle drawing on the canvas.
  */
 function draw() {
-    // stop running after passing the edge of canvas
-    if (mtn.x < width) {
-        mtn.draw();
-        mtn.draw();
-    } else {
-        frameRate(0);
-        console.log("done");
+    clear();
+
+    for (var i = 0; i < cache.length; i++) {
+        // console.log(i);
+        // cache[i].draw(recWidth * i);
+        let x = recWidth * i;
+        fill(mtnColor);
+        rect(x - recWidth, startY - cache[i].recHeight, recWidth, cache[i].recHeight);
+        fill(peakColor);
+        rect(x - recWidth, startY - cache[i].recHeight, recWidth, cache[i].capHeight);
+    }
+
+    mtn.step();
+
+    cache.push({
+        recHeight: mtn.recHeight,
+        capHeight: mtn.capHeight
+    });
+
+    if (cache.length * recWidth > width + recWidth) {
+        cache.shift();
     }
 }
 
