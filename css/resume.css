@@ -2,6 +2,7 @@
     --lightblue: #0088DD;
     --lightgray: #515151;
     --darkgray: #3F3F3F;
+    --darkestgray: #1a1a1a;
 }
 
 a {
@@ -12,6 +13,7 @@ a {
 body {
     font-family: "FiraSans", sans-serif;
     color: var(--darkgray);
+    background-color: var(--darkgray);
 }
 
 header {
@@ -20,7 +22,7 @@ header {
 }
 
 header * {
-    margin: 0.5em auto;
+    margin: 0.5rem auto;
 }
 
 header > h1 {
@@ -31,8 +33,16 @@ header * span {
     cursor: pointer;
 }
 
+ul {
+    margin: 0;
+}
+
 li {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.375rem;
+}
+
+p {
+    font-size: smaller;
 }
 
 .section-content > ul {
@@ -51,12 +61,13 @@ li {
 }
 
 #page {
+    background-color: white;
     border: 1px solid black;
-    box-shadow: 3px 3px 3px gray;
+    box-shadow: 3px 3px 3px var(--darkestgray);
     max-width: 850px;
     min-height: 1100px;
-    padding: 5em 3em 5em 3em;
-    margin: auto auto 3em auto;
+    padding: 5rem 3rem 5rem 3rem;
+    margin: auto auto 3rem auto;
 }
 
 .contact-info {
@@ -66,7 +77,7 @@ li {
 .nav {
     width: 100%;
     text-align: right;
-    font-size: 32px;
+    font-size: 2rem;
     line-height: 0;
     height: 0;
 }
@@ -76,11 +87,7 @@ li {
 }
 
 .section-content {
-    margin: auto 2em;
-}
-
-p {
-    font-size: smaller;
+    margin: 0.75rem 2rem;
 }
 
 .section-desc {
@@ -90,10 +97,11 @@ p {
 .section-title {
     color: var(--darkgray);
     font-variant: small-caps;
+    margin: 0;
 }
 
 .section-header, .section-desc, .section-content > small {
-    margin: 0.5em 0;
+    margin: 0.25rem 0;
     color: var(--lightgray);
 }
 
@@ -121,6 +129,9 @@ p {
     .print-only {
         display: inline;
     }
+    body {
+        background-color: white;
+    }
 }
 
 @media print, (max-width: 750px) {
@@ -128,7 +139,11 @@ p {
         border: none;
         box-shadow: none;
         max-width: 100%;
-        padding: 1em;
-        margin: 2em auto;
+        padding: 1rem;
+        margin: 2rem auto;
+    }
+
+    body {
+        background-color: white;
     }
 }
