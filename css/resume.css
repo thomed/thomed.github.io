@@ -35,6 +35,10 @@ li {
     margin-bottom: 0.5em;
 }
 
+p {
+    font-size: smaller;
+}
+
 .section-content > ul {
     font-size: small;
 }
@@ -76,11 +80,7 @@ li {
 }
 
 .section-content {
-    margin: auto 2em;
-}
-
-p {
-    font-size: smaller;
+    margin: 1.5rem 2rem;
 }
 
 .section-desc {
