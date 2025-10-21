@@ -49,13 +49,6 @@ p {
     font-size: small;
 }
 
-.skill-section > ul {
-    list-style: none;
-    padding-left: 0;
-    font-size: smaller;
-    color: var(--lightgray);
-}
-
 #main-content {
     margin-top: 3em;
 }
@@ -77,7 +70,7 @@ p {
 .nav {
     width: 100%;
     text-align: right;
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 0;
     height: 0;
 }
@@ -107,6 +100,17 @@ p {
 
 .skill-section {
     flex: 1 0 150px;
+}
+
+.skill-section li {
+    margin-bottom: 0.25rem;
+}
+
+.skill-section > ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: smaller;
+    color: var(--lightgray);
 }
 
 .skills-wrapper {
