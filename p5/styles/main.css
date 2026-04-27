@@ -1,17 +1,18 @@
 body {
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #1a1a1f;
 }
 
 .container {
-	width: auto;
-	border: 1px solid #00ff00;
-	padding: 1em;
-	text-align: center;
+    width: auto;
+    border: 1px solid #00ff00;
+    padding: 1em;
+    text-align: center;
 }
 
 canvas {
-	border: 1px solid black;
-	image-rendering: pixelated;
-	width: auto;
+    border: 1px solid black;
+    image-rendering: pixelated;
+    width: auto;
 }
